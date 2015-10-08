@@ -14,6 +14,7 @@ import retrofit.RestAdapter;
 import retrofit.android.AndroidLog;
 import retrofit.converter.GsonConverter;
 import retrofit.http.GET;
+import retrofit.http.Query;
 
 /**
  * Created by nicholas on 08/10/2015.
@@ -65,6 +66,9 @@ public class Core {
 
     public interface ApiInterface {
         @GET("/api/articles")
-        void getArticles(Callback<ArrayList<Article>> callback);
+        void getArticles(
+            @Query("limit") int limit,
+            Callback<ArrayList<Article>> callback
+        );
     }
 }
