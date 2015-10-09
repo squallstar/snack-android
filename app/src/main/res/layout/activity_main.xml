@@ -7,6 +7,26 @@
     android:fitsSystemWindows="true"
     tools:context="it.squallstar.snack.MainActivity">
 
+    <ViewSwitcher
+        android:id="@+id/bg_switcher"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:inAnimation="@anim/fade_in"
+        android:outAnimation="@anim/fade_out" >
+
+        <ImageView
+            android:id="@+id/first_image"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:scaleType="centerCrop" />
+
+        <ImageView
+            android:id="@+id/second_image"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:scaleType="centerCrop" />
+    </ViewSwitcher>
+
     <android.support.v4.view.ViewPager
         android:id="@+id/pager"
         android:layout_width="fill_parent"

@@ -6,12 +6,14 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
+import android.widget.ViewSwitcher;
 
 import java.util.ArrayList;
 
 import it.squallstar.snack.adapters.CollectionsAdapter;
 import it.squallstar.snack.api.Core;
 import it.squallstar.snack.helpers.Globals;
+import it.squallstar.snack.helpers.ImageSwitcher;
 import it.squallstar.snack.models.Article;
 import it.squallstar.snack.models.Collection;
 import retrofit.Callback;
@@ -33,6 +35,8 @@ public class MainActivity extends AppCompatActivity {
                         | View.SYSTEM_UI_FLAG_IMMERSIVE);
 
         setContentView(R.layout.activity_main);
+
+        Globals.bgSwitcher = new ImageSwitcher(getApplicationContext(), (ViewSwitcher)findViewById(R.id.bg_switcher));
 
         Core.getApiClient().getArticles(300, new Callback<ArrayList<Article>>() {
             @Override

@@ -63,28 +63,10 @@ public class ArticlesAdapter extends BaseAdapter {
         articleContent.setText(article.content);
 
         articleContent.setVisibility(article.content != null && article.content.length() > 0 ? View.VISIBLE : View.GONE);
-/*
-        TextView bookingUpdateDate = (TextView) item.findViewById(R.id.bookingUpdateDate);
-        bookingUpdateDate.setText("Updated " + Dates.getTimeAgo(booking.updated_at));
 
-        ImageView tourOwnerPic = (ImageView) item.findViewById(R.id.tourOwnerPic);
-        if (booking.tour.owner.user_pic != null) {
-            String picPath = booking.tour.owner.user_pic;
-
-            Picasso
-                    .with(mContext)
-                    .load(picPath)
-                    .into(tourOwnerPic, new Callback() {
-
-                        @Override
-                        public void onSuccess() {
-                        }
-
-                        @Override
-                        public void onError() {
-                        }
-                    });
-        }*/
+        if (article.image_url != null) {
+            Globals.bgSwitcher.setImage(article.image_url);
+        }
 
         return item;
     }
