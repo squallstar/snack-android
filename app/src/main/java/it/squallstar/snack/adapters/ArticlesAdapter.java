@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
+import android.text.Html;
 import android.view.Display;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -66,21 +67,24 @@ public class ArticlesAdapter extends BaseAdapter {
             item = (View) convertView;
         }
 
-        item.setBackgroundColor(Color.parseColor(article.color));
+        View articleHeader = item.findViewById(R.id.article_header);
+        articleHeader.setBackgroundColor(Color.parseColor(article.color));
 
         TextView articleTitle = (TextView) item.findViewById(R.id.article_title);
         TextView articleHeaderTitle = (TextView) item.findViewById(R.id.article_header_title);
         TextView articleHeaderAuthor = (TextView) item.findViewById(R.id.article_header_author);
         TextView articleHeaderDate = (TextView) item.findViewById(R.id.article_header_date);
         TextView articleLink = (TextView) item.findViewById(R.id.article_link);
-        ImageView articleImage = (ImageView) item.findViewById(R.id.article_image);
+        final ImageView articleImage = (ImageView) item.findViewById(R.id.article_image);
 
         articleLink.setText(article.domain);
         articleHeaderDate.setText(Dates.getTimeAgo(article.datepublish.getTime()));
         articleHeaderAuthor.setText(article.source_title);
 
         TextView articleContent = (TextView) item.findViewById(R.id.article_content);
-        articleContent.setText(article.content);
+        articleContent.setText(Html.fromHtml(article.content));
+
+        articleImage.setVisibility(article.image_url != null ? View.VISIBLE : View.GONE);
 
         if (article.image_url != null) {
             // Preview with image
@@ -89,7 +93,7 @@ public class ArticlesAdapter extends BaseAdapter {
             articleHeaderTitle.setVisibility(View.GONE);
             articleHeaderAuthor.setVisibility(View.VISIBLE);
 
-            articleTitle.setText(article.title);
+            articleTitle.setText(Html.fromHtml(article.title));
             articleTitle.setVisibility(View.VISIBLE);
 
             WindowManager wm = (WindowManager) mContext.getSystemService(Context.WINDOW_SERVICE);
@@ -110,6 +114,7 @@ public class ArticlesAdapter extends BaseAdapter {
 
                         @Override
                         public void onError() {
+                            articleImage.setVisibility(View.GONE);
                         }
                     });
 
@@ -117,8 +122,8 @@ public class ArticlesAdapter extends BaseAdapter {
             // Preview without image
             // Header: color, title, date
             // Body: content, link
+            articleHeaderTitle.setText(Html.fromHtml(article.title));
             articleHeaderTitle.setVisibility(View.VISIBLE);
-            articleHeaderTitle.setText(article.title);
 
             articleTitle.setVisibility(View.GONE);
             articleHeaderAuthor.setVisibility(View.GONE);

@@ -1,6 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical" android:layout_width="match_parent"
+    android:elevation="2dp"
+    android:background="#FFF"
     android:layout_height="wrap_content">
 
     <FrameLayout
@@ -25,7 +27,7 @@
                 android:id="@+id/article_header_title"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textSize="27sp"
+                android:textSize="30sp"
                 android:lineSpacingExtra="5dp"
                 android:textColor="#FFF"/>
 
@@ -45,7 +47,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textSize="12sp"
-                android:layout_marginTop="4dp"
+                android:layout_marginTop="7dp"
                 android:textColor="#FFF"/>
 
         </LinearLayout>
@@ -55,25 +57,26 @@
     <LinearLayout
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:padding="20dp"
-        android:background="#FFF">
+        android:padding="18dp"
+        android:orientation="vertical">
 
         <it.squallstar.snack.helpers.ProximaNovaCondensedView
             android:id="@+id/article_title"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textSize="27sp"
+            android:textSize="30sp"
             android:textColor="#000"
             android:lineSpacingExtra="5dp"
-            android:layout_marginBottom="20dp"/>
+            android:layout_marginBottom="10dp"/>
 
         <it.squallstar.snack.helpers.ProximaNovaView
             android:id="@+id/article_content"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textColor="#000"
-            android:layout_marginBottom="20dp"
-            android:textSize="15sp"/>
+            android:textColor="#777"
+            android:layout_marginBottom="10dp"
+            android:lineSpacingExtra="5dp"
+            android:textSize="16sp"/>
 
         <it.squallstar.snack.helpers.ProximaNovaView
             android:id="@+id/article_link"
