@@ -10,8 +10,7 @@
         android:layout_height="wrap_content"
         android:divider="@android:color/transparent"
         android:dividerHeight="0dp"
-        android:paddingTop="90dp"
-        android:paddingBottom="60dp"
+        android:paddingTop="40dp"
         android:scrollbars="none"
         android:clipToPadding="false"/>
 
@@ -19,13 +18,13 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="#77000000"
-        android:padding="10dp">
+        android:gravity="center_vertical">
 
-        <TextView
+        <it.squallstar.snack.helpers.ProximaNovaView
             android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="40dp"
             android:textColor="#DDD"
-            android:gravity="center_horizontal"
+            android:gravity="center"
             android:id="@+id/collection_name"/>
     </LinearLayout>
 

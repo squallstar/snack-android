@@ -33,7 +33,7 @@ public class CollectionFragment extends Fragment {
         TextView txt = (TextView) view.findViewById(R.id.collection_name);
         txt.setText(mCollection.name);
 
-        view.setBackgroundColor(Color.parseColor(mCollection.color.replace("#", "#99")));
+        view.setBackgroundColor(Color.parseColor(mCollection.color));
 
         ListView articlesList = (ListView) view.findViewById(R.id.articles_list);
 

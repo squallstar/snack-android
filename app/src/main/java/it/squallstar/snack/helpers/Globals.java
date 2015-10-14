@@ -9,5 +9,4 @@ import it.squallstar.snack.models.Collection;
  */
 public class Globals {
     public static ArrayList<Collection> collections;
-    public static ImageSwitcher bgSwitcher;
 }
